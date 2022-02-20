@@ -17,7 +17,8 @@ export default class Builder {
   }
 
   init() {
-    this.items = this.storage.load();
+    const load = this.storage.load();
+    if (load) this.items = load;
     [this.todoAdd, this.inProgressAdd, this.doneAdd].forEach((el) => {
       this.addStartElements(el);
     });
