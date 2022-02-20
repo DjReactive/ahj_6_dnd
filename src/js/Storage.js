@@ -9,8 +9,8 @@ export default class Storage {
 
   load() {
     try {
-      return (this.storage.length > 0) ?
-      JSON.parse(this.storage.getItem('tasks')) : false;
+      return (this.storage.length > 0)
+        ? JSON.parse(this.storage.getItem('tasks')) : false;
     } catch (e) {
       throw new Error('Invalid state');
     }
