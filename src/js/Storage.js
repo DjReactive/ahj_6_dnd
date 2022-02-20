@@ -4,12 +4,13 @@ export default class Storage {
   }
 
   save(saveObj) {
-    this.storage.setItem('items', JSON.stringify(saveObj));
+    this.storage.setItem('tasks', JSON.stringify(saveObj));
   }
 
   load() {
     try {
-      return JSON.parse(this.storage.getItem('items'));
+      return (this.storage.length > 0) ?
+      JSON.parse(this.storage.getItem('tasks')) : false;
     } catch (e) {
       throw new Error('Invalid state');
     }
